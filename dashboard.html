@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard: Interactive Visualizations</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Dashboard: Interactive Data Visualizations</h1>
+    </header>
+    <main>
+        <div class="container">
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <label for="yearSelect">Select Year:</label>
+                    <select id="yearSelect" class="form-control">
+                        <option value="2020">2020</option>
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <h2>Bar Chart (D3.js)</h2>
+                    <svg id="barChart" width="300" height="200"></svg>
+                </div>
+                <div class="col-md-4">
+                    <h2>Line Chart (Canvas.js)</h2>
+                    <div id="lineChart" style="height: 200px; width: 100%;"></div>
+                </div>
+                <div class="col-md-4">
+                    <h2>Pie Chart (Google Charts)</h2>
+                    <div id="pieChart" style="width: 300px; height: 200px;"></div>
+                </div>
+            </div>
+        </div>
+        <script>
+            let allData = [];
+            fetch('data/dashboard_data.json')
+                .then(response => response.json())
+                .then(data => {
+                    allData = data;
+                    updateCharts('2020');
+                });
+
+            document.getElementById('yearSelect').addEventListener('change', (e) => updateCharts(e.target.value));
+
+            function updateCharts(year) {
+                const filteredData = allData.filter(d => d.year == year);
+
+                // D3.js Bar Chart
+                const svg = d3.select('#barChart').html('');
+                const margin = { top: 20, right: 20, bottom: 30, left: 40 };
+                const width = 300 - margin.left - margin.right;
+                const height = 200 - margin.top - margin.bottom;
+                const g = svg.append('g').attr('transform', `translate(${margin.left},${margin.top})`);
+                const x = d3.scaleBand().range([0, width]).padding(0.1).domain(filteredData.map(d => d.product));
+                const y = d3.scaleLinear().range([height, 0]).domain([0, d3.max(filteredData, d => d.sales)]);
+                g.append('g').attr('transform', `translate(0,${height})`).call(d3.axisBottom(x));
+                g.append('g').call(d3.axisLeft(y));
+                g.selectAll('.bar')
+                    .data(filteredData)
+                    .enter()
+                    .append('rect')
+                    .attr('class', 'bar')
+                    .attr('x', d => x(d.product))
+                    .attr('width', x.bandwidth())
+                    .attr('y', height)
+                    .attr('height', 0)
+                    .transition()
+                    .duration(1000)
+                    .attr('y', d => y(d.sales))
+                    .attr('height', d => height - y(d.sales));
+
+                // Canvas.js Line Chart
+                const lineData = allData.filter(d => d.product === 'A').map(d => ({ x: new Date(d.year, 0, 1), y: d.sales }));
+                const lineChart = new CanvasJS.Chart('lineChart', {
+                    animationEnabled: true,
+                    title: { text: 'Sales Trend (Product A)' },
+                    data: [{ type: 'line', dataPoints: lineData, color: '#4A90E2' }]
+                });
+                lineChart.render();
+
+                // Google Charts Pie Chart
+                google.charts.load('current', { packages: ['corechart'] });
+                google.charts.setOnLoadCallback(() => {
+                    const pieData = [['Product', 'Sales']];
+                    filteredData.forEach(d => pieData.push([d.product, d.sales]));
+                    const dataTable = google.visualization.arrayToDataTable(pieData);
+                    const options = {
+                        title: 'Sales Distribution',
+                        colors: ['#4A90E2', '#F5A623'],
+                        animation: { startup: true, duration: 1000, easing: 'out' }
+                    };
+                    const chart = new google.visualization.PieChart(document.getElementById('pieChart'));
+                    chart.draw(dataTable, options);
+                });
+            }
+        </script>
+    </main>
+    <footer>
+        <p>Submitted by Hiren Dhola, Gujarat Technological University, Subject Code: 3160717, Data Visualization, 6th Semester</p>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

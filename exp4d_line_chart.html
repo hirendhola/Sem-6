@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiment 4d: Line Chart with D3.js</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Experiment 4d: Line Chart with D3.js</h1>
+    </header>
+    <main>
+        <svg width="400" height="200"></svg>
+        <script>
+            const data = [
+                { date: '2020', value: 10 },
+                { date: '2021', value: 15 },
+                { date: '2022', value: 20 },
+                { date: '2023', value: 25 }
+            ];
+
+            const svg = d3.select('svg');
+            const margin = { top: 20, right: 20, bottom: 30, left: 40 };
+            const width = svg.attr('width') - margin.left - margin.right;
+            const height = svg.attr('height') - margin.top - margin.bottom;
+            const g = svg.append('g').attr('transform', `translate(${margin.left},${margin.top})`);
+
+            const x = d3.scalePoint().range([0, width]).domain(data.map(d => d.date));
+            const y = d3.scaleLinear().range([height, 0]).domain([0, 30]);
+
+            g.append('g').attr('transform', `translate(0,${height})`).call(d3.axisBottom(x));
+            g.append('g').call(d3.axisLeft(y));
+
+            const line = d3.line().x(d => x(d.date)).y(d => y(d.value));
+            g.append('path')
+                .datum(data)
+                .attr('fill', 'none')
+                .attr('stroke', '#4A90E2')
+                .attr('stroke-width', 2)
+                .attr('d', line);
+        </script>
+    </main>
+    <footer>
+        <p>Submitted by Hiren Dhola, Gujarat Technological University, Subject Code: 3160717, Data Visualization, 6th Semester</p>
+    </footer>
+</body>
+</html>

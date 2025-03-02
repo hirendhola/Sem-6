@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiment 4c: Column Chart for Age Groups with Canvas.js</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Experiment 4c: Column Chart for Age Groups with Canvas.js</h1>
+    </header>
+    <main>
+        <div id="chartContainer" style="height: 200px; width: 100%;"></div>
+        <script>
+            window.onload = function () {
+                const chart = new CanvasJS.Chart("chartContainer", {
+                    animationEnabled: true,
+                    title: { text: "Age Group Distribution" },
+                    data: [{
+                        type: "column",
+                        dataPoints: [
+                            { label: "18-25", y: 100 },
+                            { label: "26-35", y: 150 },
+                            { label: "36-45", y: 120 },
+                            { label: "46-55", y: 80 }
+                        ],
+                        color: "#4A90E2"
+                    }]
+                });
+                chart.render();
+            }
+        </script>
+    </main>
+    <footer>
+        <p>Submitted by Hiren Dhola, Gujarat Technological University, Subject Code: 3160717, Data Visualization, 6th Semester</p>
+    </footer>
+</body>
+</html>

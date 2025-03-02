@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiment 2a: Basic Shapes with HTML5 Canvas</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Experiment 2a: Basic Shapes with HTML5 Canvas</h1>
+    </header>
+    <main>
+        <canvas id="myCanvas" width="400" height="200"></canvas>
+        <script>
+            const canvas = document.getElementById('myCanvas');
+            const ctx = canvas.getContext('2d');
+            // Rectangle
+            ctx.fillStyle = '#4A90E2';
+            ctx.fillRect(50, 50, 100, 50);
+            // Circle
+            ctx.beginPath();
+            ctx.arc(200, 75, 25, 0, 2 * Math.PI);
+            ctx.fillStyle = '#F5A623';
+            ctx.fill();
+            // Line
+            ctx.beginPath();
+            ctx.moveTo(250, 50);
+            ctx.lineTo(350, 150);
+            ctx.strokeStyle = '#333333';
+            ctx.stroke();
+        </script>
+    </main>
+    <footer>
+        <p>Submitted by Hiren Dhola, Gujarat Technological University, Subject Code: 3160717, Data Visualization, 6th Semester</p>
+    </footer>
+</body>
+</html>

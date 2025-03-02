@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Visualization Practical File</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <h1>Data Visualization Practical File</h1>
+        <p>Exploring visualization techniques through practical experiments</p>
+    </header>
+    
+    <nav class="mega-menu-wrapper">
+        <button class="mega-menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i> Menu
+        </button>
+        
+        <ul class="nav-categories" id="navCategories">
+            <li class="nav-category">
+                <button class="category-btn">
+                    <i class="fas fa-home"></i> Home
+                </button>
+            </li>
+            
+            <li class="nav-category">
+                <button class="category-btn">
+                    <i class="fas fa-paint-brush"></i> Canvas & SVG
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="mega-dropdown">
+                    <h3>HTML5 Canvas & SVG</h3>
+                    <ul class="dropdown-links">
+                        <li class="dropdown-link">
+                            <a href="exp2a_canvas_basic.html">
+                                <i class="fas fa-circle"></i> Basic Shapes (Canvas)
+                            </a>
+                        </li>
+                        <li class="dropdown-link">
+                            <a href="exp2b_canvas_advanced.html">
+                                <i class="fas fa-shapes"></i> Advanced Shapes (Canvas)
+                            </a>
+                        </li>
+                        <li class="dropdown-link">
+                            <a href="exp2c_svg_basic.html">
+                                <i class="fas fa-bezier-curve"></i> Basic Shapes (SVG)
+                            </a>
+                        </li>
+                        <li class="dropdown-link">
+                            <a href="exp2d_svg_advanced.html">
+                                <i class="fas fa-vector-square"></i> Advanced Shapes (SVG)
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            
+            <li class="nav-category">
+                <button class="category-btn">
+                    <i class="fas fa-code"></i> HTML5 & JavaScript
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="mega-dropdown">
+                    <h3>HTML5 & JavaScript Visualizations</h3>
+                    <ul class="dropdown-links">
+                        <li class="dropdown-link">
+                            <a href="exp3a_bar_chart_canvas.html">
+                                <i class="fas fa-chart-bar"></i> Simple Bar Chart (Canvas)
+                            </a>
+                        </li>
+                        <li class="dropdown-link">
+                            <a href="exp3b_data_table_txt.html">
+                                <i class="fas fa-table"></i> Data Table (data.txt)
+                            </a>
+                        </li>
+                        <li class="dropdown-link">
+                            <a href="exp3c_bar_chart_txt.html">
+                                <i class="fas fa-chart-bar"></i> Bar Chart (data.txt)
+                            </a>
+                        </li>
+                        <li class="dropdown-link">
+                            <a href="exp3d_data_table_csv.html">
+                                <i class="fas fa-file-csv"></i> Data Table (data.csv)
+                            </a>
+                        </li>
+                        <li class="dropdown-link">
+                            <a href="exp3e_column_chart_csv.html">
+                                <i class="fas fa-chart-bar"></i> Column Chart (data.csv)
+                            </a>
+                        </li>
+                        <li class="dropdown-link">
+                            <a href="exp3f_data_table_xml.html">
+                                <i class="fas fa-file-code"></i> Data Table (data.xml)
+                            </a>
+                        </li>
+                        <li class="dropdown-link">
+                            <a href="exp3g_chart_xml.html">
+                                <i class="fas fa-chart-line"></i> Chart (data.xml)
+                            </a>
+                        </li>
+                        <li class="dropdown-link">
+                            <a href="exp3h_data_table_json.html">
+                                <i class="fas fa-file-code"></i> Data Table (JSON)
+                            </a>
+                        </li>
+                        <li class="dropdown-link">
+                            <a href="exp3i_json_chart.html">
+                                <i class="fas fa-chart-pie"></i> Chart (JSON)
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            
+            <li class="nav-category">
+                <button class="category-btn">
+                    <i class="fas fa-chart-line"></i> D3.js & Canvas.js
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="mega-dropdown">
+                    <h3>D3.js & Canvas.js Visualizations</h3>
+                    <ul class="dropdown-links">
+                        <li class="dropdown-link">
+                            <a href="exp4a_column_simple.html">
+                                <i class="fas fa-chart-bar"></i> Simple Column Chart
+                            </a>
+                        </li>
+                        <li class="dropdown-link">
+                            <a href="exp4b_column_stacked.html">
+                                <i class="fas fa-layer-group"></i> Stacked Column Chart
+                            </a>
+                        </li>
+                        <li class="dropdown-link">
+                            <a href="exp4c_column_age_groups.html">
+                                <i class="fas fa-users"></i> Column Chart (Age Groups)
+                            </a>
+                        </li>
+                        <li class="dropdown-link">
+                            <a href="exp4d_line_chart.html">
+                                <i class="fas fa-chart-line"></i> Line Chart
+                            </a>
+                        </li>
+                        <li class="dropdown-link">
+                            <a href="exp4e_pie_chart.html">
+                                <i class="fas fa-chart-pie"></i> Pie Chart
+                            </a>
+                        </li>
+                        <li class="dropdown-link">
+                            <a href="exp4f_bar_multiple.html">
+                                <i class="fas fa-bars"></i> Bar Chart (Multiple)
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            
+            <li class="nav-category">
+                <button class="category-btn">
+                    <i class="fas fa-globe"></i> Google Charts & Maps
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="mega-dropdown">
+                    <h3>Google Charts & Map API</h3>
+                    <ul class="dropdown-links">
+                        <li class="dropdown-link">
+                            <a href="exp5a_bar_google.html">
+                                <i class="fas fa-chart-bar"></i> Bar Chart
+                            </a>
+                        </li>
+                        <li class="dropdown-link">
+                            <a href="exp5b_line_google.html">
+                                <i class="fas fa-chart-line"></i> Line Chart
+                            </a>
+                        </li>
+                        <li class="dropdown-link">
+                            <a href="exp5c_pie_google.html">
+                                <i class="fas fa-chart-pie"></i> Pie Chart
+                            </a>
+                        </li>
+                        <li class="dropdown-link">
+                            <a href="exp5d_donut_google.html">
+                                <i class="fas fa-circle-notch"></i> Donut Chart
+                            </a>
+                        </li>
+                        <li class="dropdown-link">
+                            <a href="exp5e_candle_google.html">
+                                <i class="fas fa-chart-line"></i> Candle Chart
+                            </a>
+                        </li>
+                        <li class="dropdown-link">
+                            <a href="exp5f_other_charts.html">
+                                <i class="fas fa-project-diagram"></i> Other Charts
+                            </a>
+                        </li>
+                        <li class="dropdown-link">
+                            <a href="exp5g_map_json.html">
+                                <i class="fas fa-map-marked-alt"></i> Google Map (JSON)
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            
+            <li class="nav-category">
+                <a href="dashboard.html">
+                    <button class="dashboard-btn">
+                        <i class="fas fa-tachometer-alt"></i> Dashboard
+                    </button>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    
+    <main>
+        <section class="content-section">
+            <div class="section-header">
+                <i class="fas fa-database"></i>
+                <h2>Welcome to Data Visualization</h2>
+            </div>
+            <div class="introduction">
+                <p>This practical file showcases various data visualization techniques using modern web technologies. From basic shapes to interactive dashboards, explore the power of HTML5, JavaScript, D3.js, Canvas.js, and Google Charts in visualizing data.</p>
+                <p>Use the interactive menu above to navigate through different experiments or check out the featured experiments below.</p>
+            </div>
+        </section>
+        
+        <section class="content-section">
+            <div class="section-header">
+                <i class="fas fa-star"></i>
+                <h2>Featured Experiments</h2>
+            </div>
+            <div class="featured-experiments">
+                <div class="experiment-card">
+                    <div class="card-header">
+                        <h3>SVG Advanced Shapes</h3>
+                        <p>HTML5 Canvas & SVG</p>
+                    </div>
+                    <div class="card-body">
+                        <p>Create complex vector graphics with SVG for scalable, resolution-independent visualizations.</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="exp2d_svg_advanced.html"><button class="view-btn">View Experiment</button></a>
+                    </div>
+                </div>
+                
+                <div class="experiment-card">
+                    <div class="card-header">
+                        <h3>JSON Chart Visualization</h3>
+                        <p>HTML5 & JavaScript</p>
+                    </div>
+                    <div class="card-body">
+                        <p>Learn how to parse and visualize JSON data using custom JavaScript charting.</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="exp3i_json_chart.html"><button class="view-btn">View Experiment</button></a>
+                    </div>
+                </div>
+                
+                <div class="experiment-card">
+                    <div class="card-header">
+                        <h3>D3.js Line Chart</h3>
+                        <p>D3.js & Canvas.js</p>
+                    </div>
+                    <div class="card-body">
+                        <p>Implement interactive line charts with smooth animations using the powerful D3.js library.</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="exp4d_line_chart.html"><button class="view-btn">View Experiment</button></a>
+                    </div>
+                </div>
+                
+                <div class="experiment-card">
+                    <div class="card-header">
+                        <h3>Google Maps API</h3>
+                        <p>Google Charts & Maps</p>
+                    </div>
+                    <div class="card-body">
+                        <p>Integrate geographic data visualization using Google Maps API and JSON data sources.</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="exp5g_map_json.html"><button class="view-btn">View Experiment</button></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="footer-content">
+            <p>Data Visualization Practical File</p>
+            <div class="footer-nav">
+                <a href="index.html">Home</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <p class="footer-credit">Submitted by Hiren Dhola, Gujarat Technological University</p>
+            <p class="footer-credit">Subject Code: 3160717, Data Visualization, 6th Semester</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Menu toggle for mobile
+        const menuToggle = document.getElementById('menuToggle');
+        const navCategories = document.getElementById('navCategories');
+        
+        menuToggle.addEventListener('click', () => {
+            navCategories.classList.toggle('mobile-active');
+        });
+        
+        // Mobile dropdown toggles
+        document.querySelectorAll('.category-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                if (window.innerWidth <= 768) {
+                    const dropdown = this.nextElementSibling;
+                    if (dropdown && dropdown.classList.contains('mega-dropdown')) {
+                        dropdown.classList.toggle('mobile-active');
+                    }
+                }
+            });
+        });
+        
+        // Sticky header
+        window.addEventListener('scroll', () => {
+            const menuWrapper = document.querySelector('.mega-menu-wrapper');
+            if (window.scrollY > 100) {
+                menuWrapper.classList.add('scrolled');
+            } else {
+                menuWrapper.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

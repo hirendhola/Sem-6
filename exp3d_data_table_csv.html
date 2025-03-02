@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiment 3d: Data Table from data.csv</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Experiment 3d: Data Table from data.csv</h1>
+    </header>
+    <main>
+        <table id="dataTable" class="table table-striped"></table>
+        <script>
+            fetch('data/data.csv')
+                .then(response => response.text())
+                .then(text => {
+                    const rows = text.split('\n').map(row => row.split(','));
+                    const headers = rows.shift();
+                    const table = document.getElementById('dataTable');
+                    const thead = table.createTHead();
+                    const headerRow = thead.insertRow();
+                    headers.forEach(header => {
+                        const th = document.createElement('th');
+                        th.textContent = header;
+                        headerRow.appendChild(th);
+                    });
+                    const tbody = table.createTBody();
+                    rows.forEach(rowData => {
+                        const row = tbody.insertRow();
+                        rowData.forEach(cellData => {
+                            const cell = row.insertCell();
+                            cell.textContent = cellData;
+                        });
+                    });
+                })
+                .catch(error => console.error('Error fetching data:', error));
+        </script>
+    </main>
+    <footer>
+        <p>Submitted by Hiren Dhola, Gujarat Technological University, Subject Code: 3160717, Data Visualization, 6th Semester</p>
+    </footer>
+</body>
+</html>

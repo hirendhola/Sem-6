@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiment 3e: Column Chart from data.csv</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Experiment 3e: Column Chart from data.csv</h1>
+    </header>
+    <main>
+        <canvas id="columnChart" width="400" height="200"></canvas>
+        <script>
+            fetch('data/data.csv')
+                .then(response => response.text())
+                .then(text => {
+                    const rows = text.split('\n').slice(1).map(row => row.split(','));
+                    const data = rows.map(row => ({ category: row[0], value: parseInt(row[1]) }));
+                    const canvas = document.getElementById('columnChart');
+                    const ctx = canvas.getContext('2d');
+                    const barWidth = 50;
+                    const spacing = 20;
+                    data.forEach((item, index) => {
+                        const x = index * (barWidth + spacing) + 50;
+                        const y = 150 - item.value * 3;
+                        ctx.fillStyle = '#4A90E2';
+                        ctx.fillRect(x, y, barWidth, item.value * 3);
+                        ctx.fillStyle = '#333333';
+                        ctx.fillText(item.category, x + 10, 170);
+                    });
+                })
+                .catch(error => console.error('Error:', error));
+        </script>
+    </main>
+    <footer>
+        <p>Submitted by Hiren Dhola, Gujarat Technological University, Subject Code: 3160717, Data Visualization, 6th Semester</p>
+    </footer>
+</body>
+</html>

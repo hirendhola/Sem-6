@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiment 5g: Google Map from JSON</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY" async defer></script>
+    <script>
+        function initMap() {
+            fetch('data/data.json')
+                .then(response => response.json())
+                .then(data => {
+                    const map = new google.maps.Map(document.getElementById('map'), {
+                        zoom: 10,
+                        center: { lat: 23.0225, lng: 72.5714 } // Ahmedabad
+                    });
+                    data.forEach(item => {
+                        new google.maps.Marker({
+                            position: { lat: item.lat, lng: item.lng },
+                            map: map,
+                            title: item.category
+                        });
+                    });
+                });
+        }
+    </script>
+</head>
+<body onload="initMap()">
+    <header>
+        <h1>Experiment 5g: Google Map from JSON</h1>
+    </header>
+    <main>
+        <div id="map" style="width: 400px; height: 200px;"></div>
+    </main>
+    <footer>
+        <p>Submitted by Hiren Dhola, Gujarat Technological University, Subject Code: 3160717, Data Visualization, 6th Semester</p>
+    </footer>
+</body>
+</html>

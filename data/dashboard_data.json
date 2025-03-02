@@ -1,0 +1,8 @@
+[
+  {"year": 2020, "product": "A", "sales": 100},
+  {"year": 2020, "product": "B", "sales": 150},
+  {"year": 2021, "product": "A", "sales": 120},
+  {"year": 2021, "product": "B", "sales": 180},
+  {"year": 2022, "product": "A", "sales": 140},
+  {"year": 2022, "product": "B", "sales": 200}
+]

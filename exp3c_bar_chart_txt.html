@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiment 3c: Bar Chart from data.txt</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Experiment 3c: Bar Chart from data.txt</h1>
+    </header>
+    <main>
+        <canvas id="barChart" width="400" height="200"></canvas>
+        <script>
+            fetch('data/data.txt')
+                .then(response => response.text())
+                .then(text => {
+                    const data = text.split('\n').map(line => parseInt(line.trim())).filter(val => !isNaN(val));
+                    const canvas = document.getElementById('barChart');
+                    const ctx = canvas.getContext('2d');
+                    const barWidth = 50;
+                    const spacing = 20;
+                    data.forEach((value, index) => {
+                        const x = index * (barWidth + spacing) + 50;
+                        const y = 150 - value * 3;
+                        ctx.fillStyle = '#4A90E2';
+                        ctx.fillRect(x, y, barWidth, value * 3);
+                    });
+                })
+                .catch(error => console.error('Error:', error));
+        </script>
+    </main>
+    <footer>
+        <p>Submitted by Hiren Dhola, Gujarat Technological University, Subject Code: 3160717, Data Visualization, 6th Semester</p>
+    </footer>
+</body>
+</html>

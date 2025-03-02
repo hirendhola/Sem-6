@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiment 5f: Other Charts with Google Charts</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script>
+        google.charts.load('current', { packages: ['corechart'] });
+        google.charts.setOnLoadCallback(drawCharts);
+        function drawCharts() {
+            // Area Chart
+            const areaData = google.visualization.arrayToDataTable([
+                ['Year', 'Sales'],
+                ['2020', 100],
+                ['2021', 150],
+                ['2022', 200],
+                ['2023', 250]
+            ]);
+            const areaOptions = {
+                title: 'Area Chart',
+                legend: { position: 'bottom' },
+                colors: ['#4A90E2'],
+                animation: { startup: true, duration: 1000, easing: 'out' }
+            };
+            const areaChart = new google.visualization.AreaChart(document.getElementById('area_div'));
+            areaChart.draw(areaData, areaOptions);
+
+            // Scatter Chart
+            const scatterData = google.visualization.arrayToDataTable([
+                ['Age', 'Weight'],
+                [8, 12],
+                [4, 5.5],
+                [11, 14],
+                [4, 5],
+                [3, 3.5],
+                [6.5, 7]
+            ]);
+            const scatterOptions = {
+                title: 'Scatter Chart',
+                legend: { position: 'bottom' },
+                colors: ['#F5A623'],
+                animation: { startup: true, duration: 1000, easing: 'out' }
+            };
+            const scatterChart = new google.visualization.ScatterChart(document.getElementById('scatter_div'));
+            scatterChart.draw(scatterData, scatterOptions);
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Experiment 5f: Other Charts with Google Charts</h1>
+    </header>
+    <main>
+        <div id="area_div" style="width: 400px; height: 200px; margin-bottom: 20px;"></div>
+        <div id="scatter_div" style="width: 400px; height: 200px;"></div>
+    </main>
+    <footer>
+        <p>Submitted by Hiren Dhola, Gujarat Technological University, Subject Code: 3160717, Data Visualization, 6th Semester</p>
+    </footer>
+</body>
+</html>

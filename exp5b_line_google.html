@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiment 5b: Line Chart with Google Charts</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script>
+        google.charts.load('current', { packages: ['corechart'] });
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart() {
+            fetch('data/data.json')
+                .then(response => response.json())
+                .then(data => {
+                    const chartData = [['Category', 'Value']];
+                    data.forEach(d => chartData.push([d.category, d.value]));
+                    const dataTable = google.visualization.arrayToDataTable(chartData);
+                    const options = {
+                        title: 'Line Chart',
+                        curveType: 'function',
+                        legend: { position: 'bottom' },
+                        colors: ['#4A90E2']
+                    };
+                    const chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+                    chart.draw(dataTable, options);
+                });
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Experiment 5b: Line Chart with Google Charts</h1>
+    </header>
+    <main>
+        <div id="chart_div" style="width: 400px; height: 200px;"></div>
+    </main>
+    <footer>
+        <p>Submitted by Hiren Dhola, Gujarat Technological University, Subject Code: 3160717, Data Visualization, 6th Semester</p>
+    </footer>
+</body>
+</html>

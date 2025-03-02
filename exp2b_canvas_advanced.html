@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiment 2b: Advanced Shapes with HTML5 Canvas</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Experiment 2b: Advanced Shapes with HTML5 Canvas</h1>
+    </header>
+    <main>
+        <canvas id="myCanvas" width="400" height="200"></canvas>
+        <script>
+            const canvas = document.getElementById('myCanvas');
+            const ctx = canvas.getContext('2d');
+            // Arc
+            ctx.beginPath();
+            ctx.arc(100, 75, 50, 0, Math.PI);
+            ctx.strokeStyle = '#4A90E2';
+            ctx.stroke();
+            // Quadratic Curve
+            ctx.beginPath();
+            ctx.moveTo(200, 50);
+            ctx.quadraticCurveTo(250, 100, 300, 50);
+            ctx.strokeStyle = '#F5A623';
+            ctx.stroke();
+            // Bezier Curve
+            ctx.beginPath();
+            ctx.moveTo(50, 150);
+            ctx.bezierCurveTo(100, 200, 150, 100, 200, 150);
+            ctx.strokeStyle = '#333333';
+            ctx.stroke();
+            // Star Polygon
+            ctx.beginPath();
+            ctx.moveTo(300, 50);
+            ctx.lineTo(320, 90);
+            ctx.lineTo(360, 90);
+            ctx.lineTo(330, 110);
+            ctx.lineTo(340, 150);
+            ctx.lineTo(300, 130);
+            ctx.lineTo(260, 150);
+            ctx.lineTo(270, 110);
+            ctx.lineTo(240, 90);
+            ctx.lineTo(280, 90);
+            ctx.closePath();
+            ctx.fillStyle = '#4A90E2';
+            ctx.fill();
+        </script>
+    </main>
+    <footer>
+        <p>Submitted by Hiren Dhola, Gujarat Technological University, Subject Code: 3160717, Data Visualization, 6th Semester</p>
+    </footer>
+</body>
+</html>

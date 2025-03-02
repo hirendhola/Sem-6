@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiment 3a: Simple Bar Chart with HTML5 Canvas</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Experiment 3a: Simple Bar Chart with HTML5 Canvas</h1>
+    </header>
+    <main>
+        <canvas id="barChart" width="400" height="200"></canvas>
+        <script>
+            const canvas = document.getElementById('barChart');
+            const ctx = canvas.getContext('2d');
+            const data = [10, 20, 30, 40];
+            const labels = ['A', 'B', 'C', 'D'];
+            const barWidth = 50;
+            const spacing = 20;
+            data.forEach((value, index) => {
+                const x = index * (barWidth + spacing) + 50;
+                const y = 150 - value * 3;
+                ctx.fillStyle = '#4A90E2';
+                ctx.fillRect(x, y, barWidth, value * 3);
+                ctx.fillStyle = '#333333';
+                ctx.fillText(labels[index], x + 10, 170);
+            });
+        </script>
+    </main>
+    <footer>
+        <p>Submitted by Hiren Dhola, Gujarat Technological University, Subject Code: 3160717, Data Visualization, 6th Semester</p>
+    </footer>
+</body>
+</html>
